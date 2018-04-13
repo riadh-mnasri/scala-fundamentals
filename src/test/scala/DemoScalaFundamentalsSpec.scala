@@ -31,9 +31,9 @@ class DemoScalaFundamentalsSpec extends FlatSpec with Matchers {
         val donutJson4: String =
             """
                 |{
-                |"donut_name":"Glazed Donut",
-                |"taste_level":"Very Tasty",
-                |"price":2.50
+                |   "donut_name":"Glazed Donut",
+                |   "taste_level":"Very Tasty",
+                |   "price":2.50
                 |}
             """
                 .stripMargin
@@ -57,9 +57,11 @@ class DemoScalaFundamentalsSpec extends FlatSpec with Matchers {
 
     def tuple() : Unit = {
         val glazedDonutTuple = Tuple2("Glazed Donut", "Very Tasty")
+        val (v1,v2) = glazedDonutTuple
         val donutType = glazedDonutTuple._1
         val donutTasteLevel = glazedDonutTuple._2
         println(s"$donutType taste level is $donutTasteLevel")
+        println(s">>>>>>>>>>>>> v1=$v1,v2=$v2")
     }
 
     def option() : Unit = {
@@ -69,9 +71,17 @@ class DemoScalaFundamentalsSpec extends FlatSpec with Matchers {
 
     def implicitClasses() : Unit = {
         val myList = List("Riadh", "Alphano", "Etienne", "Babacar", "Yacine")
-        println(s"List contains 'Riadh' = ${myList.containsFirstNameRiadh}")
+        println(s"List contains 'albano' = ${myList babacar}")
     }
-    
+
+    def traitDemo(): Unit = {
+        val donutShoppingCart: DonutShoppingCart = new DonutShoppingCart()
+        val donutShoppingCart2 = new DonutShoppingCartDao(){}
+        donutShoppingCart.add("Vanilla Donut")
+    }
+
+
+
     it should "call demo methods\"" in {
         callMe()
         printMessage()
@@ -81,5 +91,6 @@ class DemoScalaFundamentalsSpec extends FlatSpec with Matchers {
         tuple()
         option()
         implicitClasses()
+        traitDemo()
     }
 }

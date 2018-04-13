@@ -1,5 +1,5 @@
 object ListImplicits {
-    implicit class RiadhFirstNamesList(myList: List[String]){
-        def containsFirstNameRiadh: Boolean = myList.contains("Riadh")
+    implicit class Yacine(etienne: List[String]){
+        def babacar: Boolean = etienne.contains("Albano")
     }
 }
